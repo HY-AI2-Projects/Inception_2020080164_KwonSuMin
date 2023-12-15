@@ -4,4 +4,5 @@
 * 논문 원본 : https://ffighting.net/deep-learning-paper-review/vision-model/inception/
 ---
 ## 1. 서론
----
+### Inception 개념
+2015년 ImageNet 콘테스트에서 우승한 모델로, 
