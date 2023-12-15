@@ -15,3 +15,4 @@
 ---
 ## 제안방법
 ### 1. 다양한 사이즈의 필터 사용
+![image](https://github.com/HY-AI2-Projects/Inception_2020080164_KwonSuMin/assets/146939941/8422e2a9-0184-4fbb-b910-e103d6ae6f22)
