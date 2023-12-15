@@ -15,5 +15,6 @@
 ---
 ## 제안방법
 ### 1. 다양한 사이즈의 필터 사용
-<p align = center><img src = ![image](https://github.com/HY-AI2-Projects/Inception_2020080164_KwonSuMin/assets/146939941/60f50e88-5dd5-4fd2-a8bf-02043b7ecd15)
- width="50%" height="50%" ></p>
+<p align = center><img src = ![image](https://github.com/HY-AI2-Projects/Inception_2020080164_KwonSuMin/assets/146939941/9f21e8f5-8a6a-4b11-91eb-fef114b62663)
+ width="50%" height="50%" title="이미지 조절"></p>
+![image](https://github.com/HY-AI2-Projects/Inception_2020080164_KwonSuMin/assets/146939941/fd6d99a9-20c7-472e-97b9-352bbfabefc0)
