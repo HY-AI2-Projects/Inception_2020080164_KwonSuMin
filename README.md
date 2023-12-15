@@ -16,4 +16,4 @@
 ## 제안방법
 ### 1. 다양한 사이즈의 필터 사용
 <p align = center><img src = ![image](https://github.com/HY-AI2-Projects/Inception_2020080164_KwonSuMin/assets/146939941/60f50e88-5dd5-4fd2-a8bf-02043b7ecd15)
- width="50%" height="50%" title="이미지 조절"></p>
+ width="50%" height="50%" ></p>
