@@ -147,3 +147,4 @@ Inception 모델은 여러 크기의 Convolution 필터와 Pooling 레이어를 
 
 ### 별첨
 논문리뷰자료
+Jupyter notebook 자료
