@@ -1,8 +1,8 @@
 # Inception_2020080164_KwonSuMin
 * 한양대학교 산업융합학부 정보융합전공 2020080164 권수민  
 * 본 게시물은 인공지능2 기말 프로젝트로, Inception 논문을 기반으로 작성된 문서입니다.  
-* 논문 원본 : https://ffighting.net/deep-learning-paper-review/vision-model/inception/
-* Inception 모델의 핵심 구조와 성능에 대한 논문 리뷰로,
+* Inception 모델의 개념과 핵심 구조, 성능 등 기초지식에 대한 리뷰로, 딥러닝 초보자를 위한 문서입니다.  
+* 논문 원본 : https://ffighting.net/deep-learning-paper-review/vision-model/inception/.  
 ---
 ##  서론
 ### 1. Inception 개념
@@ -42,11 +42,7 @@
 
 --- 
 ## 결론
-기존 AlexNet에 비해 ImageNet 성능이 약 10% 정도 개선되었으며, 파라미터 개수는 절반정도 감소되었습니다.  
-Inception 모델의 의의는 다음과 같습니다.  
+기존 AlexNet에 비해 약 10% 정도의 성능 개선 및 절반 정도의 파라미터 개수가 감소되었으며, 이 모델의 의의는 다음과 같습니다.
  * 다양한 스케일의 특징 동시 학습
  * 네트워크 내 네트워크 개념 활용
  * 여러버전을 발표하며 중요한 아이디어 제안
-
----
-## 마치며
