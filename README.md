@@ -52,5 +52,3 @@ Inception 모델은 여러 크기의 Convolution 필터와 Pooling 레이어를 
 
 ### 별첨
 논문리뷰자료
-[Inception(2020080164 권수민).pdf](https://github.com/HY-AI2-Projects/Inception_2020080164_KwonSuMin/files/13691334/Inception.2020080164.pdf)
-
