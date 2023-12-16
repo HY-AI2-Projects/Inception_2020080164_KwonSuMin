@@ -146,5 +146,5 @@ Inception 모델은 여러 크기의 Convolution 필터와 Pooling 레이어를 
 앞으로의 딥러닝 발전을 기대하며, 본 문서가 딥러닝 초보자들에게 유익한 자료가 되길 바랍니다. 
 
 ### 별첨
-논문리뷰자료
+논문리뷰자료  
 Jupyter notebook 자료
