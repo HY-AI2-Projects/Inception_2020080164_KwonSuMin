@@ -46,7 +46,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 ```
-torch 모듈을 Import 합니다.
+* torch 모듈을 Import 합니다.
 
 ```python
   #Module class 정의
@@ -110,15 +110,15 @@ class SimpleInception(nn.Module):
 * Inception 모듈을 사용하여 간단한 모델인 `SimpleInception`을 정의합니다.  
 
 * `__init__` 메서드  
-    클래스의 초기화 메서드로, 모델의 구조를 정의합니다.
-    첫 번째 레이어는 3채널의 입력 이미지에 64개의 3x3 필터를 사용하는 컨볼루션 레이어입니다. 
- 
-    두 번째 레이어는 앞서 정의한 'InceptionModule' 클래스의 인스턴스인 'inception1`'니다.
+    클래스의 초기화 메서드로, 모델의 구조를 정의합니다.  
+    첫 번째 레이어는 3채널의 입력 이미지에 64개의 3x3 필터를 사용하는 컨볼루션 레이어입니다.  
+    두 번째 레이어는 앞서 정의한 'InceptionModule' 클래스의 인스턴스인 'inception1`'니다.  
     세 번째 레이어는 fully connected 레이어로, 입력 크기를 64*4*32*32로 가정하고 10개의 출력을 갖습니다.
   
 * `forward` 메서드  
-    순전파를 정의하는 메서드로, 입력 데이터가 각 레이어를 통과하도록 구성됩니다.
-    먼저 입력 데이터는 3x3 컨볼루션 레이어를 통과하고, 그 다음으로는 Inception 모듈을 통과합니다. 그 후에는 펼쳐진(flatten) 형태로 변환된 다음, fully connected 레이어를 통과하여 최종 출력을 생성합니다.
+    순전파를 정의하는 메서드로, 입력 데이터가 각 레이어를 통과하도록 구성됩니다.  
+    먼저 입력 데이터는 3x3 컨볼루션 레이어를 통과하고, 그 다음으로는 Inception 모듈을 통과합니다.
+    그 후에는 펼쳐진(flatten) 형태로 변환된 다음, fully connected 레이어를 통과하여 최종 출력을 생성합니다.
   
 * 이 모델은 단순한 형태의 Inception 아키텍처를 사용하여 이미지 분류를 수행하는 모델로 보입니다.
 
