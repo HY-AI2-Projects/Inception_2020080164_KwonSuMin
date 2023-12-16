@@ -39,6 +39,101 @@
 앞서 설명드린 제안방법을 반영한 전체구조는 다음과 같습니다.  
 ![image](https://github.com/HY-AI2-Projects/Inception_2020080164_KwonSuMin/assets/146939941/8d79f88e-7271-4e61-8a85-305cc238fa8b)
 
+---
+## 코드설명
+```pythion
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+```
+torch 모듈을 Import 합니다.
+
+```python
+  #Module class 정의
+class InceptionModule(nn.Module):
+    def __init__(self, in_channels):
+        super(InceptionModule, self).__init__()
+        
+        # 1x1 Convolution
+        self.conv1 = nn.Conv2d(in_channels, 64, kernel_size=1)
+        
+        # 1x1 Conv followed by 3x3 Conv
+        self.conv3 = nn.Sequential(
+            nn.Conv2d(in_channels, 64, kernel_size=1),
+            nn.Conv2d(64, 128, kernel_size=3, padding=1)
+        )
+        
+        # 1x1 Conv followed by 5x5 Conv
+        self.conv5 = nn.Sequential(
+            nn.Conv2d(in_channels, 64, kernel_size=1),
+            nn.Conv2d(64, 128, kernel_size=5, padding=2)
+        )
+        
+        # 3x3 MaxPooling followed by 1x1 Conv
+        self.pool = nn.Sequential(
+            nn.MaxPool2d(3, stride=1, padding=1),
+            nn.Conv2d(in_channels, 32, kernel_size=1)
+        )
+        
+    def forward(self, x):
+        conv1_out = self.conv1(x)
+        conv3_out = self.conv3(x)
+        conv5_out = self.conv5(x)
+        pool_out = self.pool(x)
+        
+        # Concatenate along channel dimension
+        output = torch.cat([conv1_out, conv3_out, conv5_out, pool_out], dim=1)
+        
+        return output
+```
+* `__init__` 메서드  
+    class 초기화 메서드로, Incetpion 모듈의 각 요소를 정의합니다.
+    1x1 컨볼루션, 1x1 컨볼루션 뒤에 3x3 컨볼루션, 1x1 컨볼루션 뒤에 5x5 컨볼루션, 3x3 맥스 풀링 뒤에 1x1 컨볼루션 등이 있습니다.  
+* `forward` 메서드  
+    순전파를 정의하는 메서드로, 입력 데이터를 각각의 컴포넌트를 통과시킨 후 채널 차원을 따라 이들을 연결(concatenate)하여 최종 출력을 생성합니다.
+
+```python
+class SimpleInception(nn.Module):
+    def __init__(self):
+        super(SimpleInception, self).__init__()
+        self.conv1 = nn.Conv2d(3, 64, kernel_size=3, padding=1)
+        self.inception1 = InceptionModule(64)
+        self.fc = nn.Linear(64*4*32*32, 10)  # Assuming input size is [32, 32, 3]
+        
+    def forward(self, x):
+        x = self.conv1(x)
+        x = self.inception1(x)
+        x = x.view(x.size(0), -1)
+        x = self.fc(x)
+        return x
+```
+* Inception 모듈을 사용하여 간단한 모델인 `SimpleInception`을 정의합니다.  
+
+* `__init__` 메서드  
+    클래스의 초기화 메서드로, 모델의 구조를 정의합니다.
+    첫 번째 레이어는 3채널의 입력 이미지에 64개의 3x3 필터를 사용하는 컨볼루션 레이어입니다. 
+ 
+    두 번째 레이어는 앞서 정의한 'InceptionModule' 클래스의 인스턴스인 'inception1`'니다.
+    세 번째 레이어는 fully connected 레이어로, 입력 크기를 64*4*32*32로 가정하고 10개의 출력을 갖습니다.
+  
+* `forward` 메서드  
+    순전파를 정의하는 메서드로, 입력 데이터가 각 레이어를 통과하도록 구성됩니다.
+    먼저 입력 데이터는 3x3 컨볼루션 레이어를 통과하고, 그 다음으로는 Inception 모듈을 통과합니다. 그 후에는 펼쳐진(flatten) 형태로 변환된 다음, fully connected 레이어를 통과하여 최종 출력을 생성합니다.
+  
+* 이 모델은 단순한 형태의 Inception 아키텍처를 사용하여 이미지 분류를 수행하는 모델로 보입니다.
+
+```python
+# Create the model
+model = SimpleInception()
+```
+
+* 이 코드는 앞서 정의한 `SimpleInception` 클래스를 사용하여 모델을 생성하는 부분입니다.  
+* `SimpleInception()`  
+    'SimpleInception' 클래스의 인스턴스를 생성하는 코드입니다.
+    이 모델은 이미지 분류 작업을 위해 정의된 단순한 Inception 아키텍처를 사용합니다.
+    이제 `model` 변수에는 이 인스턴스가 저장되어 있으며, 이 모델을 사용하여 이미지 데이터에 대한 예측을 수행할 수 있습니다.  
+* 이 모델을 훈련하거나 추론을 수행하기 위해 데이터를 전달하고 적절한 손실 함수 및 옵티마이저를 선택하여 훈련 단계를 진행할 수 있습니다.
+
 --- 
 ## 결론
 기존 AlexNet에 비해 약 10% 정도의 성능 개선 및 절반 정도의 파라미터 개수가 감소되었으며, 이 모델의 의의는 다음과 같습니다.
